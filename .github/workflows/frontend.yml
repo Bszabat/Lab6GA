@@ -1,5 +1,4 @@
-name: GitHub Action flow to Docker hub 
-
+name: CI
 on:
   push:
     branches: [main]
@@ -34,7 +33,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-
       #Zbudowanie i wypchniecie obrazu na Dockerhuba
       - name: Build and push
         id: docker_build
@@ -43,11 +41,11 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
           platforms: linux/arm64/v8,linux/amd64 
-          context: .
+          context: ./
           file: ./dockerfile.v1
           push: true
           tags: |
-            bszabat5/lab:lab7
+            bszabat5/lab:lab7 
       
       #Przenies cache'a
       - name: Move cache
