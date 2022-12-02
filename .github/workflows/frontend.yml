@@ -4,7 +4,7 @@ on:
     branches: [main]
 
 jobs:
-  build-push-images:
+  build:
     name: Budowa i publikacja obrazw na repozytorium
     runs-on: ubuntu-latest
 
