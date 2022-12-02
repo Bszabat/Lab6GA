@@ -5,12 +5,9 @@ on:
 
 jobs:
   build:
-    name: Budowa i publikacja obrazw na repozytorium
     runs-on: ubuntu-latest
 
     steps:
-
-        name: Checkout
         uses: actions/checkout@v3
       -
         name: Set up QEMU
